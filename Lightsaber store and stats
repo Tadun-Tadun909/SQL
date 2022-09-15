@@ -1,0 +1,32 @@
+CREATE TABLE lightsaber_store (id INTEGER PRIMARY KEY, name TEXT, color TEXT, hilt TEXT, quantity INTEGER, price INTEGER);
+
+INSERT INTO lightsaber_store VALUES (1, "Qui-gon", "Green", "Standard", 5, 50);
+INSERT INTO lightsaber_store VALUES (2, "Kenobi v1", "Blue", "Standard", 10, 50);
+INSERT INTO lightsaber_store VALUES (3, "Maul", "Red", "Staff", 25, 80);
+INSERT INTO lightsaber_store VALUES (4, "Anakin v1", "Blue", "Standard", 7, 50);
+INSERT INTO lightsaber_store VALUES (5, "Windu", "Purple", "Standard", 25, 70);
+INSERT INTO lightsaber_store VALUES (6, "Yoda", "Green", "Shoto", 20, 65);
+INSERT INTO lightsaber_store VALUES (7, "Dooku", "Red", "Curved", 20, 70);
+INSERT INTO lightsaber_store VALUES (8, "Kenobi v2", "Blue", "Standard", 25, 75);
+INSERT INTO lightsaber_store VALUES (9, "Anakin v2", "Blue", "Standard", 40, 75);
+INSERT INTO lightsaber_store VALUES (10, "Luke", "Green", "Standard", 25, 75);
+INSERT INTO lightsaber_store VALUES (11, "Vader", "Red", "Standard", 25, 75);
+INSERT INTO lightsaber_store VALUES (12, "Sidious", "Red", "Standard", 20, 66);
+INSERT INTO lightsaber_store VALUES (13, "Rey", "Yellow", "Standard", 10, 50);
+INSERT INTO lightsaber_store VALUES (14, "Kylo", "Red", "Crossguard", 25, 80);
+INSERT INTO lightsaber_store VALUES (15, "Ezra", "Blue", "Blaster", 25, 80);
+
+--display the database ordered by price
+SELECT * FROM lightsaber_store
+ORDER BY price desc;
+
+--what is the average price of red sabers?
+SELECT AVG(price) "average red saber price"
+FROM lightsaber_store
+WHERE color = "Red";
+
+--what are the 5 items with the greatest quantity?
+SELECT name, quantity, price
+FROM lightsaber_store
+ORDER BY quantity desc
+LIMIT 5;
