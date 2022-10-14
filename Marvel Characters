@@ -41,15 +41,19 @@ INSERT INTO marvels VALUES(25, "Juggernaut", 76, "Neutral", "Male", 2.87, 862, "
 INSERT INTO marvels VALUES(26, "Professor X", 58, "Good", "Male", 1.83, 86, "EUA", 5, 2, 2, 2, 5, 3);
 SELECT * FROM marvels;
 
+
+--Shows the names and weights of the lightest and heaviest characters, and the average weight of all the characters
 SELECT name, MAX(weight_kg) FROM marvels;
 SELECT name, MIN(weight_kg) FROM marvels;
 SELECT AVG(weight_kg) FROM marvels;
 
+--Displays the average weights of alignments when the average is over 100kg
 SELECT alignment, AVG(weight_kg) AS avg_weight FROM marvels
 GROUP BY alignment
 HAVING avg_weight > 100;
 
 
+--Categorizes characters into different power levels based on their stats
 SELECT name,
     CASE
         WHEN ((intelligence + strength + speed + durability + energy_Projection + fighting_Skills)/6) >= 5 THEN "powerhouse"
@@ -58,6 +62,9 @@ SELECT name,
     END as "power_levels"
 FROM marvels;
 
+
+--Displays the characters whose intelligence and strength stats are both 4 or higher
 SELECT * FROM marvels WHERE intelligence >= 4 AND strength >= 4;
 
+--Displays the characters whose energy projection or fighting skills stats are 6 or higher
 SELECT * FROM marvels WHERE energy_Projection >= 6 OR fighting_Skills >=6;
