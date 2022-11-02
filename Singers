@@ -1,0 +1,72 @@
+CREATE TABLE singers (id INTEGER PRIMARY KEY,
+    name TEXT,
+    country TEXT,
+    band TEXT);
+    
+INSERT INTO singers (name, country, band)
+    VALUES("Brian Johnson", "UK", "AC/DC");
+INSERT INTO singers (name, country, band)
+    VALUES("Tom Petty", "USA", "Tom Petty & The Heartbreakers");
+INSERT INTO singers (name, country, band)
+    VALUES("Steven Tyler", "USA", "Aerosmith");
+INSERT INTO singers (name, country, band)
+    VALUES("Carlos Santana", "Mexico", "Santana");
+INSERT INTO singers (name, country, band)
+    VALUES("Chad Kroeger", "Canada", "Nickelback");
+INSERT INTO singers (name, country, band)
+    VALUES("Avril Lavigne", "Canada", "Avril Lavigne");
+INSERT INTO singers (name, country, band)
+    VALUES("Mick Jagger", "UK", "The Rolling Stones");
+INSERT INTO singers (name, country, band)
+    VALUES("David Lee Roth", "USA", "Van Halen");
+INSERT INTO singers (name, country, band)
+    VALUES("Lou Gramm", "USA", "Foreigner");
+    
+CREATE TABLE songs (id INTEGER PRIMARY KEY,
+    name TEXT,
+    artist TEXT);
+
+INSERT INTO songs (name, artist)
+    VALUES("Back in Black", "AC/DC");
+INSERT INTO songs (name, artist)
+    VALUES("I Won't Back Down", "Tom Petty & The Heartbreakers");
+INSERT INTO songs (name, artist)
+    VALUES("Rag Doll", "Aerosmith");
+INSERT INTO songs (name, artist)
+    VALUES("Smooth", "Santana");
+INSERT INTO songs (name, artist)
+    VALUES("Rockstar", "Nickelback");
+INSERT INTO songs (name, artist)
+    VALUES("Sk8er Boi", "Avril Lavigne");
+INSERT INTO songs (name, artist)
+    VALUES("Gimme Shelter", "The Rolling Stones");
+INSERT INTO songs (name, artist)
+    VALUES("Hot for Teacher", "Van Halen");
+INSERT INTO songs (name, artist)
+    VALUES("Juke Box Hero", "Foreigner");
+INSERT INTO songs (name, artist)
+    VALUES("Thunderstruck", "AC/DC");
+INSERT INTO songs (name, artist)
+    VALUES("American Girl", "Tom Petty & The Heartbreakers");
+INSERT INTO songs (name, artist)
+    VALUES("Walk This Way", "Aerosmith");
+INSERT INTO songs (name, artist)
+    VALUES("Black Magic Woman", "Santana");
+INSERT INTO songs (name, artist)
+    VALUES("This is How You Remind Me", "Nickelback");
+INSERT INTO songs (name, artist)
+    VALUES("Complicated", "Avril Lavigne");
+INSERT INTO songs (name, artist)
+    VALUES("Jumpin' Jack Flash", "The Rolling Stones");
+INSERT INTO songs (name, artist)
+    VALUES("Jump", "Van Halen");
+INSERT INTO songs (name, artist)
+    VALUES("Urgent", "Foreigner");
+
+--Joins the two tables and displays the song title and the country that the singer is from
+--The results are then sorted by the country the singer is from and the name of the band
+SELECT songs.name, singers.country
+    FROM songs
+    JOIN singers
+    ON songs.artist = singers.band
+    ORDER BY singers.country, songs.artist;
